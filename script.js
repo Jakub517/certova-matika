@@ -1,6 +1,7 @@
 var cislo1 = 0;
 var cislo2 = 0;
 var spusteno = false;
+var skore = 0;
 
 window.addEventListener('load', (event) => {
     nactiPriklad();
@@ -18,6 +19,8 @@ document.getElementById("formular").onsubmit = function(event) {
     event.preventDefault();
     if(document.getElementById("vysledek").value == cislo1 + cislo2){
         document.getElementById("jidlo").value += 5;
+        skore += 1;
+        document.getElementById("skore").innerHTML = skore;
     }
 
     spustHru();
@@ -38,6 +41,8 @@ function uberJidlo(){
 
 function spustHru(){
     if(spusteno == false){
+        skore = 0;
+        document.getElementById("skore").innerHTML = skore;
         uberJidlo();
     }
 
